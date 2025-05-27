@@ -7,7 +7,7 @@ services:
     ports:
       - "1111:80"
     volumes: 
-      - instamart_volume:/usr/share/ngnix/html
+      - instamart_volume:/usr/share/nginx/html
     networks:
       - devops
   dinein:
@@ -25,7 +25,7 @@ services:
     ports:
       - "3333:80"
     volumes:
-      - fooddelivery_volume:/usr/share/ngnix/html
+      - fooddelivery_volume:/usr/share/nginx/html
   genie:
     container_name: genie
     build: ./genie
