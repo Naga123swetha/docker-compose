@@ -1,0 +1,49 @@
+---
+version: "3"
+services:
+  instamart:
+    container_name: instamart
+    build: ./instamart
+    ports:
+      - "1111:80"
+    volumes: 
+      - instamart_volume:/usr/share/ngnix/html
+    networks:
+      - devops
+  dinein:
+    container_name: dinein
+    build: ./dinein
+    ports:
+      - "2222:80"
+    volumes:
+        - dinein_volume:/usr/share/nginx/html
+    networks:
+      - swetha
+  fooddelivery:
+    container_name: fooddelivery
+    build: ./fooddelivery
+    ports:
+      - "3333:80"
+    volumes:
+      - fooddelivery_volume:/usr/share/ngnix/html
+  genie:
+    container_name: genie
+    build: ./genie
+    ports:
+      - "4444:80"
+    volumes:
+       - genie_volume:/usr/share/nginx/html
+
+volumes:
+  instamart_volume:
+  dinein_volume:
+  fooddelivery_volume:
+  genie_volume:
+networks:
+  devops:
+    driver: bridge
+  swetha:
+    driver: bridge
+
+
+
